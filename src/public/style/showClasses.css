@@ -1,0 +1,7 @@
+#filter {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #3b8ec2;
+    color: #fff;
+  }

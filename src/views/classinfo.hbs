@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="/style/style.css"/>
+<h1 id={{class._id}} class="className">  {{class.name}} </h1>
+<h2 id="professor">professor: {{class.professor}}</h2>  
+{{#if modify}}
+<button type="button" id="update-professor">change professor</button>
+{{/if}}
+<input type="text" id="change-professor" name="change-professor" value="" style="display:none;"> <button type="button" id="submit-prof" style="display:none">submit</button>
+<h2> class Number:{{class.classNumber}}</h2>
+<ul id="textbooks-list">textbooks
+{{#each class.textbook}}
+<a href="/bookinfo/{{this.title}}-{{this.edition}}-{{this.author}}-{{this.isbn}}"><li>{{this.title}}  edition:{{this.edition}}  author:{{this.author}}  isbn:{{this.isbn}}</a>
+<button type="button" class="addBtn" id="{{this.title}}, {{this.edition}}, {{this.author}},{{this.isbn}}">Add book to list</button></li>
+{{/each}}
+</ul>
+{{#if modify}}
+<div  id="update-textbook">
+<p id="add book">add book</p>
+<p id="remove-book">remove book</p><input type="text" id="remove-input" name="remove-input" value="isbn" style="display:none;">
+<button type="button" id="remove-submit" style="display:none">submit</button>
+{{/if}}
+</div>
+<div id="modal-book" class="modal">
+	<div class="modal-content">
+		title<input type="text" id="title" name="title" value=""><br>
+        edition<input type="text" id="edition" name="title" value=""> <br>
+        author<input type="text" id="author" name="title" value=""> <br>
+        isbn<input type="text" id="isbn" name="title" value=""> <br>
+		<input type="button" class="submit" id="create-book" value="create">
+		<input type="button" class="cancel" value="Cancel" id="cancel">
+	</div>
+</div>
+<script src="/javascripts/main.js"></script>
+

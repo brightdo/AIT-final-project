@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="/style/style.css"></link>
+<title></title>
+<style>
+	
+</style>
+
+
+</head>
+
+<form method="POST">
+Add a Class
+<br>
+<div id="alert">
+{{#each message}}
+<p>{{this}}</p>
+{{/each}}
+</div>
+<div id="success">{{success}}</div>
+	name<input type="name" name="name"> <br>
+    Professor<input type="professor" name="professor"> <br>
+	class Number<input type="classNumber" name="classNumber"><br>
+	<input type="submit" id="button" value = "Add this class!">
+</form>
