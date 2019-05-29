@@ -2,8 +2,11 @@
 
 
 <ul id="navUl">
+  {{#if isAuthenticated}}
+    <li id="navLi"><a id = "navA" href="/logout">log out</a></li>
+  {{else}}
   <li id= "navLi"><a id = "navA" class="active" href="/login">log in</a></li>
-  <li id="navLi"><a id = "navA" href="/logout">log out</a></li>
+{{/if}}
   <li id="navLi"><a id = "navA" href="/signup">sign up</a></li>
   <li id="navLi"><a id = "navA" href="/search">search</a></li>
     <li id="navLi"><a id = "navA" href="/list">my List</a></li>

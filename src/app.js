@@ -36,7 +36,13 @@ app.use((req,res,next)=>{
 const bodyParser = require('body-parser'); app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(function(req,res,next){
+  app.locals.isAuthenticated = req.isAuthenticated();
+  next(); 
+});
+
   app.set('view engine', 'hbs');
+
 
   app.get('/',(req,res)=>{
     res.redirect('/search');
@@ -45,6 +51,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
   app.get('/addClass', (req,res) =>{
 
 if(req.user !== undefined){
+  console.log(req.user);
     if(req.user.modify){
       if(req.isAuthenticated()){
         res.render('addClass');
@@ -268,7 +275,7 @@ else{
     app.get('/login', (req,res)=>{
       res.render('login');
     });
-
+    
     app.post('/login', (req,res,next)=>{
       passport.authenticate('local',{
         successRedirect: '/list',
@@ -342,7 +349,8 @@ else{
 
     //handle log out
     app.get('/logout', (req, res)=>{
-      req.logout();
+      // req.logOut();
+      req.session.destroy();
       res.redirect('/login');
     });
     
